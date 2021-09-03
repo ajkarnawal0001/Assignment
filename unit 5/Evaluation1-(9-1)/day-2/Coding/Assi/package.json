@@ -1,0 +1,12 @@
+{
+    "name": "option-menu",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --watch app --watch libs menuOption/server"
+    },
+    "author": "Amarjeet",
+    "license": "ISC"
+}
