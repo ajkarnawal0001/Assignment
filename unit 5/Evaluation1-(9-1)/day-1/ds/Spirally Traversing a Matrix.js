@@ -6,6 +6,7 @@ function runProgram(input) {
         let row = input[i].split(" ").map(Number)
         matrix.push(row)
     }
+    console.log("sdsdsd")
     console.log(matrix)
     spiral(matrix, N);
     function spiral(arr, N) {
@@ -46,7 +47,7 @@ function runProgram(input) {
         console.log(res);
     }
 }
-if (process.env.USERNAME === "HP") {
+if (process.env.USERNAME === "") {
   runProgram(`4
 1 2 3 4
 5 6 7 8
