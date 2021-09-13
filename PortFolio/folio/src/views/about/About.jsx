@@ -3,9 +3,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./about.css";
-import Profile from "../../assets/img/profile/profile.svg";
+import Profile from "../../assets/img/profile/amar pic.jpeg";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import styled from 'styled-components'
 
 const About = () => {
   return (
@@ -16,7 +17,7 @@ const About = () => {
           <Row className=" pb-5 align-items-center">
             <Col xs={12} md={6}>
               <Row className="justify-content-center mb-2 mr-2 ">
-                <Image className="profile justify-content-end" alt="profile" src={Profile} />
+                <ImageMy  className="profile justify-content-end myImg" alt="profile" src={Profile} />
               </Row>
             </Col>
             <Col xs={12} md={6}>
@@ -65,5 +66,9 @@ const About = () => {
     </div>
   );
 };
+
+const ImageMy = styled.img`
+border-radius:40%;
+`
 
 export default About;

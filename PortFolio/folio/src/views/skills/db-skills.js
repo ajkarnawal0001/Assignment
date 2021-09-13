@@ -11,9 +11,12 @@ import L_HEROKU from "../../assets/img/skills/heroku.svg";
 import L_GITHUB_PAGES from "../../assets/img/skills/github.svg";
 import L_JAVASCRIPT from "../../assets/img/skills/javascript.svg";
 import L_NETLIFY from "../../assets/img/skills/netlify-icon.svg"
-import L_FIREBASE from "../../assets/img/skills/firebase-icon.svg"
+import L_DSA from "../../assets/img/skills/Data Structure Icon_files/algorithm-4162584-3450296.png"
 import L_VERCEL from "../../assets/img/skills/logo-vercel.svg"
 import L_TAILWIND from "../../assets/img/skills/tailwindcss-icon.svg"
+import L_express from "../../assets/img/skills/express.svg"
+import L_mongoose from "../../assets/img/skills/pngfind.com-js-logo-png-4309574.png"
+import L_mongo from "../../assets/img/skills/mongodb-ar21.svg"
 
 
 
@@ -36,12 +39,6 @@ export const skills = {
         imgAltText: "JavaScript",
         imgSrc: L_JAVASCRIPT,
         skillName: "JavaScript",
-      },
-      {
-        link: "https://sass-lang.com/",
-        imgAltText: "Sass",
-        imgSrc: L_SASS,
-        skillName: "Sass",
       },
       {
         link: "https://reactjs.org/",
@@ -115,16 +112,30 @@ export const skills = {
     databases: [
       {
         link: "https://firebase.google.com/",
-        imgAltText: "Firebase Database",
-        imgSrc: L_FIREBASE,
-        skillName: "Firebase Database",
+        imgAltText: "Data Structure and algorithm",
+        imgSrc: L_DSA,
+        skillName: "Data Structure and algorithm",
+      }
+    ],
+    backend: [
+      {
+        link: "/",
+        imgAltText: "express",
+        imgSrc: L_express,
+        skillName: "express",
       },
       {
-        link: "https://firebase.google.com/docs/firestore",
-        imgAltText: "Firestore",
-        imgSrc: L_FIREBASE,
-        skillName: "Cloud Firestore",
+        link: "/",
+        imgAltText: "mongoDB",
+        imgSrc: L_mongo,
+        skillName: "MongoDb",
       },
+      {
+        link: "/",
+        imgAltText: "Mongoose",
+        imgSrc: L_mongoose,
+        skillName: "Mongoose",
+      }
     ],
     versionControl: [
       {
