@@ -43,7 +43,7 @@ versionKey:false,
 timestamps:true
 })
 
-const Post = mongoose.model("post",teacherSchema)
+const Post = mongoose.model("teacher",teacherSchema)
 
 // Tag 
 const tagSchema = new mongoose.Schema({
@@ -66,6 +66,11 @@ app.get("/students",async (req,res)=>{
     // console.log({student})
     return res.status(200).json({student})
 })
+app.get("/students/site",async (req,res)=>{
+    let x = true
+    const student = await Students.find().where("studying").eq(x)
+    return res.status(200).json({student})
+})
 app.get("/students/18",async (req,res)=>{
     let x = 18
     const student = await Students.find().where('age').gt(x)
@@ -74,12 +79,12 @@ app.get("/students/18",async (req,res)=>{
 
 app.get("/students/gender/male",async (req,res)=>{
     let x = "Male"
-    const student = await Students.find().where('gender').gt(x)
+    const student = await Students.find().where('gender').eq(x)
     return res.status(200).json({student})
 })
 app.get("/students/gender/female",async (req,res)=>{
     let x = "Female"
-    const student = await Students.find().where('gender').gt(x)
+    const student = await Students.find().where('gender').eq(x)
     return res.status(200).json({student})
 })
 
@@ -105,6 +110,11 @@ app.post("/teacher", async (req,res)=>{
 
 app.get("/teacher",async(req,res)=>{
     const teacher = await Post.find().populate("student_id").populate("tag_ids").lean().exec()
+    return res.status(200).json({teacher})
+})
+app.get("/teacher/max",async(req,res)=>{
+    let x = 18
+    const teacher = await Post.find().where('students').gt(x)
     return res.status(200).json({teacher})
 })
 
