@@ -21,9 +21,10 @@ const StudentSchema = new mongoose.Schema({
 
 const Students = mongoose.model("students",StudentSchema)
 
-const postSchema = new mongoose.Schema({
+const teacherSchema = new mongoose.Schema({
     title:{type:String,required:true},
     body:{type:String,required:true},
+    students:{type:Number,required:true},
     student_id:{
     type: mongoose.Schema.Types.ObjectId,
     ref:"students",
@@ -42,7 +43,7 @@ versionKey:false,
 timestamps:true
 })
 
-const Post = mongoose.model("post",postSchema)
+const Post = mongoose.model("post",teacherSchema)
 
 // Tag 
 const tagSchema = new mongoose.Schema({
@@ -51,11 +52,11 @@ const tagSchema = new mongoose.Schema({
     versionKey:false,
     timestamps:true
 })
-const Tag = mongoose.model("post",postSchema)
+const Tag = mongoose.model("tag",tagSchema)
 const app = express()
 app.use(express.json())
 
-app.post("students",async(req,res)=>{
+app.post("/students",async(req,res)=>{
     const student = await Students.create(req.body);
     return res.status(201).json({student})
 })
@@ -80,6 +81,31 @@ app.get("/students/gender/female",async (req,res)=>{
     let x = "Female"
     const student = await Students.find().where('gender').gt(x)
     return res.status(200).json({student})
+})
+
+// tag
+app.post("/tags",async(req,res)=>{
+    const tag = await Tag.create(req.body)
+
+    return res.status(201).json({tag})
+})
+
+app.get("/tags",async(req,res)=>{
+    // let x = "Fullstack"
+    const tag = await Tag.find().lean().exec()
+    return res.status(200).json({tag})
+})
+
+// teacher 
+app.post("/teacher", async (req,res)=>{
+    const teacher = await Post.create(req.body)
+
+    return res.status(201).json({teacher})
+})
+
+app.get("/teacher",async(req,res)=>{
+    const teacher = await Post.find().populate("student_id").populate("tag_ids").lean().exec()
+    return res.status(200).json({teacher})
 })
 
 app.listen(8000, async function(){
