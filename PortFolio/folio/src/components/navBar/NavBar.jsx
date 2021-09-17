@@ -12,7 +12,7 @@ import "./NavBar.css"
              className="animate-navbar nav-theme justify-content-between"
              variant="dark">
                 <Navbar.Brand href="#home">
-                    <img className="logo" src="" alt='Logo'/>
+                    <h3>PORTFOLIO | AMARJEET SINGH</h3>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

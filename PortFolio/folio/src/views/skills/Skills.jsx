@@ -128,7 +128,7 @@ const Skills = () => {
                             <hr />
                             <Card.Text className="card-text d-flex justify-content-start flex-column">
                                 <a className="text-dark text-decoration-none" href={skills.versionControl[0].link} target="_blank" rel="noopener noreferrer">
-                                    <Image src={skills.versionControl[0].imgSrc} alt={skills.versionControl[0].imgAltText} rounded className="image-style m-1"></Image> {skills.versionControl[0].skillName}
+                                    <Image  src={skills.versionControl[0].imgSrc} alt={skills.versionControl[0].imgAltText} rounded className="image-style m-1 imageIcon"></Image> {skills.versionControl[0].skillName}
                                 </a>
                             </Card.Text>
                         </Card.Body>

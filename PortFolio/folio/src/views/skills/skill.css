@@ -31,8 +31,11 @@
   }
   
   .image-style {
-    width: 3em;
+    width: 2.5em;
+    height: 2.5rem;
+    margin: 1rem auto;
   }
+
   
   .font-details {
     font-size: 3em;
@@ -45,3 +48,7 @@
     font-weight: 500;
     color: #ffffff;
   }
+
+  /* .imageIcon{
+    width: 1px;
+  } */

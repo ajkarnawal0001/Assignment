@@ -25,6 +25,7 @@ import L_JAVASCRIPT from "../../assets/img/skills/javascript.svg";
 import L_FIREBASE from "../../assets/img/skills/firebase-icon.svg"
 import L_STYLED_COMP from "../../assets/img/skills/styled-components.svg"
 import L_RRD from "../../assets/img/skills/react-router.svg"
+import Button from '@material-ui/core/Button';
 
 // Custom timline theme
 const customTheme = createTheme(themes.default, {
@@ -52,7 +53,7 @@ const ProjectTimeline = () => {
           <ImageEvent
             date="24th Aug, 2021"
             className="text-center"
-            text="Trivago"
+            text="TRIVAGO"
             src={trivago}
             alt="Trivago"
           >
@@ -165,19 +166,23 @@ const ProjectTimeline = () => {
                 </Accordion>
               </div>
               <div className="d-flex justify-content-between flex-nowrap text-center">
-                <UrlButton
+              
+                <Button
+                
+                className="ButtonSmall"
                 // add deploy link
-                  href="//"
+                  href="https://trivago24-acp24.vercel.app"
                   target="_blank"
                 >
                   SEE LIVE
-                </UrlButton>
-                <UrlButton
+                </Button>
+                <Button
+                className="ButtonSmall"
                   href="https://github.com/Rahul3105/trivago-clone"
                   target="_blank"
                 >
                   SOURCE CODE
-                </UrlButton>
+                </Button>
               </div>
             </div>
           </ImageEvent>
@@ -187,7 +192,7 @@ const ProjectTimeline = () => {
           <ImageEvent
             date="22nd July, 2021"
             className="text-center"
-            text="Jobs App"
+            text="HIRIST"
             src={hirist}
             alt="hirist"
           >
@@ -278,18 +283,20 @@ const ProjectTimeline = () => {
                 </Accordion>
               </div>
               <div className="d-flex justify-content-between flex-nowrap text-center">
-                <UrlButton
-                  href="https://hirist-1149f.web.app/"
+                <Button
+                className="ButtonSmall"
+                  href="https://hiristclone.netlify.app/"
                   target="_blank"
                 >
                   SEE LIVE
-                </UrlButton>
-                <UrlButton
+                </Button>
+                <Button
+                className="ButtonSmall"
                   href="https://github.com/amit-web/Project-hirist-clone"
                   target="_blank"
                 >
                   SOURCE CODE
-                </UrlButton>
+                </Button>
               </div>
             </div>
           </ImageEvent>
@@ -301,7 +308,7 @@ const ProjectTimeline = () => {
           <ImageEvent
             date="9th June, 2021"
             className="text-center"
-            text="Lybrate"
+            text="LYBRATE"
             src={lybrate}
             alt="lybrate App"
           >
@@ -370,18 +377,20 @@ const ProjectTimeline = () => {
                 </Accordion>
               </div>
               <div className="d-flex justify-content-between flex-nowrap text-center">
-                <UrlButton
+                <Button
+                className="ButtonSmall"
                   href="https://adibaabid.github.io/Music-List-App/"
                   target="_blank"
                 >
                   SEE LIVE
-                </UrlButton>
-                <UrlButton
+                </Button>
+                <Button
+                className="ButtonSmall"
                   href="https://github.com/ajkarnawal0001/Lybrate"
                   target="_blank"
                 >
                   SOURCE CODE
-                </UrlButton>
+                </Button>
               </div>
             </div>
           </ImageEvent>

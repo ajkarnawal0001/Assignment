@@ -7,6 +7,7 @@ import Profile from "../../assets/img/profile/amar pic.jpeg";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import styled from 'styled-components'
+// import Typography from '@mui/material/Typography';
 
 const About = () => {
   return (
@@ -22,6 +23,14 @@ const About = () => {
             </Col>
             <Col xs={12} md={6}>
               <Row className=" align-items-start p-2 my-details rounded tex align-text-left " >
+                <AboutHead>
+                  <h3>Name:Amarjeet Singh</h3>
+                  <hr />
+                  <h4>Email: akarnawal0001@gmail.com , Mobile:9599626625</h4>
+                  <hr />
+                  <h4>Address:Balwant colony kichha ,U.S.Nagar
+                  Uttarakhand</h4>
+                  </AboutHead>
                 <br />Web Developer with expertise of React.js, Redux, HTML and CSS and good knowledge of Data Structure and Algorithm.
                 <br /><br/>
                 I am passionate programmer and a learner, I've amassed over 4 years to studied with B.tech (CSE) and having recently completed a 6 month deliberate practice training. I'm passionate about working with different projects with different Team members.".
@@ -37,7 +46,7 @@ const About = () => {
                     </a>
                   </div>
                   <div>
-                    <a href="https://drive.google.com/drive/folders/1Ym9dijDqt1B_SOqoAPkZaIAbHlLcZPRU" target="_blank" rel="noopener noreferrer">
+                    <a href="https://drive.google.com/file/d/1xp1794AZ-4db-VyZynTyggk9JUOO1-xI/view" target="_blank" rel="noopener noreferrer">
                       <Button className="m-2" variant="outline-success">
                         My Resume
                       </Button>
@@ -69,6 +78,11 @@ const About = () => {
 
 const ImageMy = styled.img`
 border-radius:40%;
+`
+const AboutHead = styled.div`
+font-size:16px;
+font-weight:bold;
+color:black;
 `
 
 export default About;

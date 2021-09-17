@@ -4,14 +4,20 @@
     -webkit-text-decoration: none;
     text-decoration: none;
     font-size: 14px;
-    background-color: #934caf !important;
+    background-color: #6ea5e4 !important;
     border: none;
     border-radius: 4px;
   
     padding: 10px;
     color: #fff;
   }
-  
+  .accordian-main:hover{
+    background-color: rgba(160, 160, 160, 0.384) !important ;
+    color: #EC24B5;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
   .list-styles {
     list-style-type: circle;
   }
@@ -20,3 +26,9 @@
     width: 3em;
   }
   
+  .ButtonSmall{
+    color: black !important;
+  }
+  .ButtonSmall:hover{
+    color: #EC24B5 !important;
+  }
