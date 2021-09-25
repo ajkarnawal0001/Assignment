@@ -1,18 +1,20 @@
 function runProgram(input) {
-//   input = input.trim().split("\n")
-//   let N = +input[0]
-//   let arr = input[1].trim().split(" ").map(Number)
-//      arr.sort(function (a, b) {
-//        return a - b;
-//      });
+  input = input.trim().split("\n")
+  let N = +input[0]
+  let arr = input[1].trim().split(" ").map(Number)
+     arr.sort(function (a, b) {
+       return a - b;
+     });
 
-// let ans=0;
-// for(let i=0;i<N;i++){
-//   if(i+2>=N)
-//   break;
-//       ans = Math.max(ans, arr[i + 2] - arr[i]);
-//   }
-//   console.log(ans)
+let ans=0;
+for(let i=0;i<N;i++){
+  if(i+2>=N){
+    console.log(i)
+    break;
+  }
+      ans = Math.max(ans, arr[i + 2] - arr[i]);
+  }
+  console.log(ans)
 console.log(process.env.USERNAME)
 }
 

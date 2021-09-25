@@ -18,7 +18,24 @@ const signup = async (req,res) =>{
 }
 
 const signin = async (req,res) =>{
-    return res.send("User")
+    try {
+        const user = await User.findOne({email:req.body.email}).lean()
+        if(!user) return res.status(401).json({status:"failed",message:"your email or password is not correct"})
+        
+    } catch (e) {
+        return res.status(500).json({status:"failed",message:"something went wrong"})
+    }
+
+    try {
+        const match = await user.checkPassword(req.body.password)
+        if(!match) return res.status(401).json({status:"failed",message:"your email or password is not correct"})
+        
+    } catch (e) {
+        return res.status(500).json({status:"failed",message:"something went wrong"})
+    }
+
+    const token = newToken(user)
+    return res.status(201).json({data:{token}})
 }
 
 module.exports = {

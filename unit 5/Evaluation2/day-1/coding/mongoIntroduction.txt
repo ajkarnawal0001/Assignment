@@ -1,0 +1,188 @@
+> show dbs
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+masai        0.000GB
+person-auth  0.000GB
+>
+> db.users.insert({"firstName":"Amarjeet","lastName":"Singh"})
+WriteResult({ "nInserted" : 1 })
+> db.users.find({})
+{ "_id" : ObjectId("614ee56fd321674fd48a5615"), "firstName" : "Amarjeet", "lastName" : "Singh" }
+>
+>
+> db.users.insertMany([{"FirstName":"Amarjeet", "lastName":"singh"},{"FirstName":"Simran","LastName":"kakkar"})
+... db.users.find({})
+... db.users.insertMany([{"FirstName":"Amarjeet", "lastName":"singh"},{"FirstName":"Simran","LastName":"kakkar"}])
+... ^C
+
+> db.users.insertMany([{"FirstName":"Amarjeet", "lastName":"singh"},{"FirstName":"Simran","LastName":"kakkar"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("614ee641d321674fd48a5616"),
+                ObjectId("614ee641d321674fd48a5617")
+        ]
+}
+> db.users.find({})
+{ "_id" : ObjectId("614ee56fd321674fd48a5615"), "firstName" : "Amarjeet", "lastName" : "Singh" }
+{ "_id" : ObjectId("614ee641d321674fd48a5616"), "FirstName" : "Amarjeet", "lastName" : "singh" }
+{ "_id" : ObjectId("614ee641d321674fd48a5617"), "FirstName" : "Simran", "LastName" : "kakkar" }
+> db.users.insert({"firstName":"Amarjeet","lastName":"Singh","gender":"male","age":"23"})
+WriteResult({ "nInserted" : 1 })
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("614ee56fd321674fd48a5615"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh"
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5616"),
+        "FirstName" : "Amarjeet",
+        "lastName" : "singh"
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5617"),
+        "FirstName" : "Simran",
+        "LastName" : "kakkar"
+}
+{
+        "_id" : ObjectId("614ee680d321674fd48a5618"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh",
+        "gender" : "male",
+        "age" : "23"
+}
+>
+>
+> db.users.find({"_id":ObjectId("614ee641d321674fd48a5617")})
+{ "_id" : ObjectId("614ee641d321674fd48a5617"), "FirstName" : "Simran", "LastName" : "kakkar" }
+>
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("614ee56fd321674fd48a5615"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh"
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5616"),
+        "FirstName" : "Amarjeet",
+        "lastName" : "singh"
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5617"),
+        "FirstName" : "Simran",
+        "LastName" : "kakkar"
+}
+{
+        "_id" : ObjectId("614ee680d321674fd48a5618"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh",
+        "gender" : "male",
+        "age" : "23"
+}
+> db.users.findOne({"_id":ObjectId("614ee641d321674fd48a5617")})
+{
+        "_id" : ObjectId("614ee641d321674fd48a5617"),
+        "FirstName" : "Simran",
+        "LastName" : "kakkar"
+}
+> db.users.update({"_id":ObjectId("614ee641d321674fd48a5617"),{$set: {"gender":"female"}}})
+uncaught exception: SyntaxError: expected property name, got '{' :
+@(shell):1:60
+> db.users.update({"_id":ObjectId("614ee641d321674fd48a5617")},{$set: {"gender":"female"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.findOne({"_id":ObjectId("614ee641d321674fd48a5617")})
+{
+        "_id" : ObjectId("614ee641d321674fd48a5617"),
+        "FirstName" : "Simran",
+        "LastName" : "kakkar",
+        "gender" : "female"
+}
+>
+> db.users.update({"_id":ObjectId("614ee641d321674fd48a5616")},{$set:{"age":40}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("614ee56fd321674fd48a5615"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh"
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5616"),
+        "FirstName" : "Amarjeet",
+        "lastName" : "singh",
+        "age" : 40
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5617"),
+        "FirstName" : "Simran",
+        "LastName" : "kakkar",
+        "gender" : "female"
+}
+{
+        "_id" : ObjectId("614ee680d321674fd48a5618"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh",
+        "gender" : "male",
+        "age" : "23"
+}
+>
+> db.users.update({"firstName":"Amarjeet")},{$set:{"age":23}})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:39
+> db.users.update({"firstName":"Amarjeet"}},{$set:{"age":23}})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:40
+> db.users.update({"firstName":"Amarjeet"},{$set:{"age":23}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+>
+> db.users.updateMany({"firstName":"Amarjeet"},{$set:{"email":"akarnawal001"}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+>
+> db.user.remove("firstName":"Amarjeet")
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:26
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("614ee56fd321674fd48a5615"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh",
+        "age" : 23,
+        "email" : "akarnawal001"
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5616"),
+        "FirstName" : "Amarjeet",
+        "lastName" : "singh",
+        "age" : 40
+}
+{
+        "_id" : ObjectId("614ee641d321674fd48a5617"),
+        "FirstName" : "Simran",
+        "LastName" : "kakkar",
+        "gender" : "female"
+}
+{
+        "_id" : ObjectId("614ee680d321674fd48a5618"),
+        "firstName" : "Amarjeet",
+        "lastName" : "Singh",
+        "gender" : "male",
+        "age" : "23",
+        "email" : "akarnawal001"
+}
+> db.users.remove({"_id" : ObjectId("614ee56fd321674fd48a5615")})
+WriteResult({ "nRemoved" : 1 })
+>
+
+
+
+
+
+
+
+
+
+
+
