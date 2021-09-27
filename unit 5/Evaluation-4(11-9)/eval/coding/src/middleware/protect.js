@@ -3,40 +3,30 @@ const User = require("../model/user.model")
 
 const verifyToken = (token)=>{
     return new Promise((resolve,reject)=>{
-        jwt.verify(token,process.env.JWT_SECRET_KEY,(err,payload)=>{
+        jwt.verify(token,process.env.JWT_SECRET_KEY,(err,user)=>{
             if(err) return reject(err)
 
-            return resolve(payload)
+            if (user) return resolve(user)
         })
     })
 }
 const protect = async(req,res,next) => {
-    const bearer = req.headers.authorization;
+    const bearerToken = req?.headers?.authorization;
 
-    if(!bearer || !bearer.startWith("Bearer"))
+    if(!bearerToken || !bearerToken.startWith("Bearer"))
     return res.status(401).json({status:"failed",message:"something went wrong"})
     
-    const token = bearer.split("Bearer ")[1].trim()
-
-    let paylaod;
-    try {
-        paylaod = await verifyToken(token)
-    } catch (e) {
-        return res.status(401).json({status:"failed",message:"error..."})
-    }
+    
+    const token = bearerToken.split(" ")[1].trim()
 
     let user;
 
     try {
-        user = User.findById(paylaod.id).lean().exec()
+        user = await verifyToken(token)
     } catch (e) {
         return res.status(500).json({status:"failed",message:"erorr in finfind user"})
     }
-
-    if(!user){
-        return res.status(401).json({status:"failed",message:"user not found"})
-    }
-    req,user = user;
+    req.user = user;
     next()
 }
 

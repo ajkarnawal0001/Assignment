@@ -11,7 +11,7 @@ const userController = require("./controller/user.controller")
 app.post("/signup",signup)
 app.post("/signin",signin)
 app.use("/users",userController)
-app.use("/admin",lectureController)
+app.use("/lecture",lectureController)
 
 const start = async () =>{
     await connect()
