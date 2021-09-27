@@ -1,0 +1,12 @@
+const express = require('express')
+const User = require('../model/user.model')
+
+const router = express.Router()
+
+router.get("/", async (req,res)=>{
+    const users = await User.fing({}).lean().exec()
+
+    return res.status(200).json({data:users})
+})
+
+module.exports = router
