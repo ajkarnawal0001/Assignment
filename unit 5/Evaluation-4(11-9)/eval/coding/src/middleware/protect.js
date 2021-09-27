@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken")
 const User = require("../model/user.model")
 
 const verifyToken = (token)=>{
-    new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject)=>{
         jwt.verify(token,process.env.JWT_SECRET_KEY,(err,payload)=>{
             if(err) return reject(err)
 
