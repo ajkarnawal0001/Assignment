@@ -2,14 +2,20 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const User = require('../model/user.model')
 const newToken = (user) =>{
-    return jwt.sign({id:user.id},process.env.JWT_SECRET_KEY)
+    return jwt.sign({user: user},process.env.JWT_SECRET_KEY)
 }
 
 const signup = async (req,res) =>{
+    let user;
     try {
-        const user = await User.create(req.body)
+        user = await User.findOne({email:req.body.email}).lean().exec()
+        if(user) return res.status(400).json({status:"failed", message:"something went wrong"})
+        
+        user = await User.create(req.body)
+        if(!user) return res.status(500).json({status:"failed", message:"something went wrong"})
+        
         const token = newToken(user)
-        return res.status(201).json({data:token})
+        return res.status(201).json({token:token})
     } catch (e) {
         return res.status(500).json({status:"failed", message:"something went wrong"})
     }
