@@ -4,6 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./about.css";
 import Profile from "../../assets/img/profile/amar pic.jpeg";
+import Profile1 from "../../assets/img/profile/01.JPG";
+import Profile2 from "../../assets/img/profile/02.JPG";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import styled from 'styled-components'
@@ -18,7 +20,7 @@ const About = () => {
           <Row className=" pb-5 align-items-center">
             <Col xs={12} md={6}>
               <Row className="justify-content-center mb-2 mr-2 ">
-                <ImageMy  className="profile justify-content-end myImg" alt="profile" src={Profile} />
+                <ImageMy  className="profile justify-content-end myImg" alt="profile" src={Profile1} />
               </Row>
             </Col>
             <Col xs={12} md={6}>
