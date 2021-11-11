@@ -6,7 +6,6 @@ function runProgram(input) {
 //     for(let i=0;i<str.length;i++){
 //         let prev = i-1
 //         let fron = i+1
-        
 //        if(str[i]=="?"){
 //         if(i==str.length-1){
 //             if(ans[prev]=="a"){
@@ -33,7 +32,7 @@ function runProgram(input) {
 //     }
 // console.log(ans)
 }
-   if(process.env.USERNAME ==="Lenovo"){
+   if(process.env.USERNAME ==="Amarjeet"){
 runProgram(`?a?a???`);//bababa
       }else{
       process.stdin.resume();

@@ -5,7 +5,6 @@ function runProgram(input) {
        arr.sort(function (a, b) {
          return a - b;
        });
-  
   let ans=0;
   for(let i=0;i<N;i++){
     if(i+2>=N){
@@ -15,9 +14,7 @@ function runProgram(input) {
     }
     console.log(ans)
   }
-  
-  
-  if(process.env.USERNAME ==="KARNAWALS"){
+  if(process.env.USERNAME ==="Lenovo"){
     runProgram(`4
     5 10 6 8 4 6`);
   }else{
